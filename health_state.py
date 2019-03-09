@@ -1,8 +1,8 @@
 import questionnaire as quest
+import prompt
 
-def get_name():
+def get_name(name):
     s = "state_questionnaire_"
-    name = input("What is your name?: ")
     nameList = name.split()
     for word in nameList:
         if (word != nameList[-1]):
@@ -61,9 +61,13 @@ def write_state_questionnaire(f, oldValues, avgValues, userCheck):
     return 0
 
 def write_state():
-    s = get_name()
-    answer = input("Do you want to take the questionnaire? (yes/no): ")
-    if (answer != "yes"):
+    p = prompt.prompt()
+    p.start()
+    s = get_name(p.nameVar.get())
+    answer = p.ansVar.get()
+    if (p.confirm == False):
+        return 0
+    if (answer != "Yes"):
         return 0
     try:
         f = open(s, "r+")

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import questionnaire as quest
 import prompt
 

@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 import questionnaire as quest
-import prompt
+from prompt import *
+from guidance import *
 
 def get_name(name):
     s = "state_questionnaire_"
@@ -62,14 +62,14 @@ def write_state_questionnaire(f, oldValues, avgValues, userCheck):
     return 0
 
 def write_state():
-    p = prompt.prompt()
+    p = prompt()
     p.start()
     s = get_name(p.nameVar.get())
     answer = p.ansVar.get()
     if (p.confirm == False):
-        return 0
+        return ""
     if (answer != "Yes"):
-        return 0
+        return ""
     try:
         f = open(s, "r+")
         oldValues, avgValues = read_state(f)
@@ -80,6 +80,10 @@ def write_state():
         oldValues = [0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
         write_state_questionnaire(f1, oldValues, [], "new")
         f1.close()
+    return s
 
 if __name__ == '__main__':
-    write_state()
+     s = write_state()
+     if (len(s) > 0):
+         g = Guidance(s)
+         g.give_guidance()

@@ -1,6 +1,6 @@
 # CS125-HappyBrain
 
-to run the program, run the python file health_state.py
+to run the program, run the python file health_state.py using IDLE or any other python interpreter
 
 if it fails to run due to missing libraries, run pip -r install on requirements.txt to install the necessary python libraries
 

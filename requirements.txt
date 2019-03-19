@@ -1,0 +1,4 @@
+CherryPy
+oauthlib == 2.1.0
+pandas
+request-oauthlib == 1.1.0
